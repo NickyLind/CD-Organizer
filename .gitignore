@@ -1,0 +1,5 @@
+ProjectName/bin/
+ProjectName/obj/
+ProjectName.Tests/bin/
+ProjectName.Tests/obj/
+.DS_Store
