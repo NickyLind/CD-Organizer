@@ -1,5 +1,3 @@
-ProjectName/bin/
-ProjectName/obj/
-ProjectName.Tests/bin/
-ProjectName.Tests/obj/
+*/bin/
+*/obj/
 .DS_Store
