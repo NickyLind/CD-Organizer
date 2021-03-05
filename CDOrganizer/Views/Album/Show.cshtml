@@ -1,7 +1,8 @@
 <h1>Album Details: </h1>
 
-<h2>@Model.Name</h2>
+<h2>@Model["album"].Name</h2>
+<h3>Genre: @Model["genre"].Name</h3>
 
-<p>Add another <a href="/album/new">Album</a><br></p>
-<p>view <a href="/album">Album List</a><br></p>
+<p>Add another <a href='/genres/@Model["genre"].Id/album/new'>Album</a></p><br>
+<p>view <a href="/genres">Genre List</a></p><br>
 <a href="/">Home</a>

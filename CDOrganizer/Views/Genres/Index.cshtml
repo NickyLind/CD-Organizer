@@ -1,0 +1,15 @@
+@using CDOrganizer.Models;
+
+<h1>Genres</h1>
+
+@if (@Model.Count == 0)
+{
+  <h3>No genres have been added yet!</h3>
+}
+
+@foreach (Genre genre in Model)
+{
+  <h3><a href="/genres/@genre.Id">@genre.Name</a></h3>
+}
+
+<p>Return <a href="/">Home</a></p>

@@ -1,0 +1,14 @@
+@using CDOrganizer.Models;
+
+<h3>Here are all the albums in this genre:</h3>
+
+<ol>
+  @foreach (Album album in @Model["albums"])
+  {
+    <li><a href='/genres/@Model["genre"].Id/albums/@album.Id'>@album.Name</a></li>
+  }
+</ol>
+
+<p>Add a new <a href='/genres/@ModelExpressionProvider["genre"].Id/albums/new'>album</a></p>
+<p>Return to <a href='/genres'>genre</a> list</p>
+<p>Return <a href='/'>Home</a></p>

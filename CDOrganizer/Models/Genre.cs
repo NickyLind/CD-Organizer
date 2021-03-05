@@ -31,5 +31,10 @@ namespace CDOrganizer.Models
     {
       return _instances[searchId-1];
     }
+
+    public void AddAlbum(Album album)
+    {
+      Albums.Add(album);
+    }
   }
 }

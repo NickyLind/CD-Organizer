@@ -7,31 +7,22 @@ namespace CDOrganizer.Controllers
 {
   public class AlbumController : Controller
   {
-    [HttpGet("/album")]
-    public ActionResult Index()
+    [HttpGet("/genres/{genreId}/album/new")]
+    public ActionResult New(int genreId)
     {
-      List<Album> allAlbums = Album.GetAll();
-      return View(allAlbums);
+      Genre genre = Genre.Find(genreId);
+      return View(genre);
     }
 
-    [HttpGet("/album/new")]
-    public ActionResult New()
+    [HttpGet("/genres/{genreId}/album/{albumId}")]
+    public ActionResult Show(int genreId, int albumId)
     {
-      return View();
-    }
-
-    [HttpPost("/album")]
-    public ActionResult Create(string albumName)
-    {
-      Album newAlbum = new Album(albumName);
-      return RedirectToAction("Index");
-    }
-
-    [HttpGet("/album/{id}")]
-    public ActionResult Show(int id)
-    {
-      Album foundAlbum = Album.Find(id);
-      return View(foundAlbum);
+      Album album = Album.Find(albumId);
+      Genre genre = Genre.Find(genreId);
+      Dictionary<string, object> model = new Dictionary<string, object> ();
+      model.Add("album", album);
+      model.Add("genre", genre);
+      return View(model);
     }
 
     [HttpPost("/album/delete")]

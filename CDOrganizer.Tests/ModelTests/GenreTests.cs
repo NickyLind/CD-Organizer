@@ -60,5 +60,23 @@ namespace CDOrganizer.Tests
       Genre result = Genre.Find(2);
       Assert.AreEqual(newGenre2, result);
     }
+
+    [TestMethod]
+    public void AddAlbum_AssociatesAlbumWithGenre_AlbumList()
+    {
+      // Arrange
+      string albumName = "Hybrid Theory";
+      Album newAlbum = new Album(albumName);
+      List<Album> newList = new List<Album> { newAlbum };
+      string genreName = "rock";
+      Genre newGenre = new Genre(genreName);
+      newGenre.AddAlbum(newAlbum);
+
+      // Act
+      List<Album> result = newGenre.Albums;
+
+      // Assert
+      CollectionAssert.AreEqual(newList, result);
+    }
   }
 }
