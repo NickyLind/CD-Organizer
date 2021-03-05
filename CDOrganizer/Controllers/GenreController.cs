@@ -36,7 +36,7 @@ namespace CDOrganizer.Controllers
       Album newAlbum = new Album(albumName);
       foundGenre.AddAlbum(newAlbum);
       List<Album> genreAlbums = foundGenre.Albums;
-      model.Add("items", genreAlbums);
+      model.Add("albums", genreAlbums);
       model.Add("genre", foundGenre);
       return View("Show", model);
     }
